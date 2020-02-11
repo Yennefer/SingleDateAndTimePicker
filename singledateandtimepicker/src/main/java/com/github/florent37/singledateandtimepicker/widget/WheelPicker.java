@@ -712,10 +712,6 @@ public abstract class WheelPicker<V> extends View {
         return adapter.getData().indexOf(defaultValue);
     }
 
-    public int getTodayItemPosition() {
-        return adapter.getData().indexOf(getLocalizedString(R.string.picker_today));
-    }
-
     public void setAdapter(Adapter adapter) {
         this.adapter = adapter;
 
@@ -939,7 +935,7 @@ public abstract class WheelPicker<V> extends View {
         if (this instanceof WheelDayPicker) {
             String today = getFormattedValue(new Date());
             if (today.equals(formatItem)) {
-                return getTodayItemPosition();
+                return ((WheelDayPicker) this).getTodayItemPosition();
             }
         }
 
